@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(:version => 20130517182507) do
 
   create_table "form_definitions", :force => true do |t|
     t.integer  "form_id"
-    t.string   "form_question_type"
-    t.integer  "form_question_id"
+    t.string   "questionable_type"
+    t.integer  "questionable_id"
     t.integer  "position"
     t.boolean  "is_required"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "forms", :force => true do |t|

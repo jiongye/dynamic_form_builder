@@ -6,6 +6,7 @@ DynamicFormBuilder::Application.routes.draw do
 
   resources :forms
 
-
+  get 'question_options' => 'questions#options'
+  get 'question_set_options' => 'question_sets#options'
 
 end

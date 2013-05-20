@@ -1,0 +1,31 @@
+= form_for @form do |f|
+
+  %div
+    = f.label :name
+    = f.text_field :name
+
+  #questions
+    = f.fields_for :form_definitions do |fd|
+      = dynamic_fields_wrapper_for(fd) do
+        %div
+          = fd.label :questionable_type, 'Question type'
+          = fd.select :questionable_type, ['Question', 'QuestionSet'], {:include_blank => true}, :class => 'question_type'
+
+        %div
+          = fd.label :questionable_id, 'Question'
+          = fd.select :questionable_id, fd.object.questionable_type ? options_from_collection_for_select(fd.object.questionable_type.constantize.all, 'id', 'name', fd.object.questionable_id) : [], {:include_blank => true}, :class => 'question_id'
+
+        %div
+          = fd.label :is_required
+          = fd.check_box :is_required
+
+        %div
+          = fd.label :position, 'Question Number'
+          = fd.select :position, (1..30).to_a, :include_blank => true
+
+  #add_question
+    Add More Question
+
+
+  %div
+    = f.submit

@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'activeadmin'
+gem 'dynamic_fields'
 
 
 # Gems used only for assets and not required

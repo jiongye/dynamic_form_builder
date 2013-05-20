@@ -1,1 +1,12 @@
 this is a app for trying to build a form builder UI to create forms on demand
+
+dynamic form builder:
+
+TODO:
+
+1. need to be able to handle question set
+2. need to be able to handle single question
+3. need to be able to handle conditional question
+4. question types: string, checkbox, select box (single and multiple), radio buttons, text, date
+5. handle question set or question order
+6. handle question required

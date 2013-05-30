@@ -1,0 +1,9 @@
+.field
+  %div
+    = "#{position}. #{field.name}"
+
+  %div
+    - field.multiple_choice.options.order('position').each do |option|
+      %span
+        = f.radio_button field.name, option.id
+        = f.label option.name

@@ -1,0 +1,3 @@
+.field
+  = f.label "question_#{field.id}", "#{position}. #{field.name}"
+  = f.select "question_#{field.id}", field.multiple_choice.options.order('position').map{|x| [x.name, x.id]}, :include_blank => field.multiple_choice.include_blank?

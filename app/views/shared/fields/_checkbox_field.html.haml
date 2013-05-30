@@ -1,0 +1,13 @@
+.field
+  - if field.multiple_choice_id.blank?
+    = f.label field.name, "#{position}. #{field.name}"
+    = f.check_box field.name
+  - else
+    %div
+      = "#{position}. #{field.name}"
+    %div
+      - field.multiple_choice.options.order('position').each do |option|
+        %span
+          = check_box_tag "#{field.name}[]", option.id
+          = f.label option.name
+

@@ -4,7 +4,9 @@ DynamicFormBuilder::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :forms
+  resources :forms do
+    resources :form_answers
+  end
 
   get 'question_options' => 'questions#options'
   get 'question_set_options' => 'question_sets#options'

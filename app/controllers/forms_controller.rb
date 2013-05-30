@@ -6,6 +6,7 @@ class FormsController < ApplicationController
 
   def show
     @form = Form.find(params[:id])
+    @form_definitions = @form.form_definitions.order('position')
   end
 
   def new

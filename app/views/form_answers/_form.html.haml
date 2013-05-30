@@ -1,0 +1,16 @@
+= form_for [@form, @form_answer] do |f|
+  = f.fields_for :content, OpenStruct.new(@form_answer.content) do |builder|
+    .form_detail
+      - @form.form_definitions.order('position').each do |fd|
+        - questionable = fd.questionable
+        .question
+          - if questionable.is_a?(QuestionSet)
+            - questionable.question_items.order('position').each do |qi|
+              .question_item
+                - question = qi.question
+                = render "/shared/fields/#{question.field_type}", :position => qi.position, :field => question, :f => builder, :question_set => questionable
+          - else
+            .question_item
+              = render "/shared/fields/#{questionable.field_type}", :position => fd.position, :field => questionable, :f => builder
+
+  = f.submit

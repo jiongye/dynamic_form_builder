@@ -8,6 +8,6 @@
     %div
       - field.multiple_choice.options.order('position').each do |option|
         %span
-          = check_box_tag "#{field.name}[]", option.id
+          = check_box_tag "form_answer[content][#{field.name}][]", option.id, (f.object.send(field.name).include?(option.id.to_s) rescue nil)
           = f.label option.name
 
